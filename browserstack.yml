@@ -1,0 +1,16 @@
+userName: YOUR_USERNAME
+accessKey: YOUR_ACCESS_KEY
+framework: true
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Chrome
+    browserVersion: 120.0
+browserstackLocal: true
+buildName: browserstack-AI agent authoring for Automate(Latest)
+projectName: BrowserStack Sample
+aiAuthoring: true # setting this capability to true will help in running browserstack NL Authoring commands
+
+
+
+
