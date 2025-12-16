@@ -45,7 +45,7 @@ platforms:
   # - deviceName: Google Pixel 6 Pro
   #   osVersion: 12.0
   #   platformName: android
-
+aiAuthoring: true
 # =======================
 # Parallels per Platform
 # =======================
