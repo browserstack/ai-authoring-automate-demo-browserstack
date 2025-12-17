@@ -30,19 +30,28 @@ public class AppiumTest {
     public void sampleTest() throws Exception {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         
-        // AI Action 1: Fill signup form with email and password
-        System.out.println("Action 1: Filling signup form...");
-        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Click on create account button, enter abc@gmail.com in the email field, type 12345678 in the password field\"]}");
-        Thread.sleep(3000); // Wait for form to be filled
+        // AI Action 1: Select culture tab (no scrolling needed)
+        System.out.println("Action 1: Select culture tab");
+        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Tap on culture tab from the top navigation bar\"]}");
+        Thread.sleep(3000); // Wait for culture tab to load
         
-        // AI Action 2: Set date of birth
-        System.out.println("Action 2: Setting date of birth...");
-        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Set the date of birth to 8 Jan 1994\"]}");
-        Thread.sleep(3000); // Wait for date to be set
+        // AI Action 2: Extract the title of the third article
+        System.out.println("Action 2: Fetch the title of the third article from the start...");
+        Object titleResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: Extract the title text of the third article from the top of the page\"]}");
+        String extractedTitle = titleResult != null ? titleResult.toString() : "";
+        System.out.println("Extracted Title: " + extractedTitle);
+        Thread.sleep(3000);
         
-        // AI Validation: Verify date of birth
-        System.out.println("Validation: Checking if date of birth is set to 8 Jan 1994...");
-        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Validate if the date of birth is 8 Jan 1994\"]}");
+        // AI Action 3: Extract the label below the third article
+        System.out.println("Action 3: Extracting the label below the third article...");
+        Object labelResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: If the third article along with timestamp and category label is not completely visible on screen, scroll a few pixels at a time until it is fully in view. Then extract the category label text that appears after the timestamp of the third article\"]}");
+        String extractedLabel = labelResult != null ? labelResult.toString() : "";
+        System.out.println("Extracted Label: " + extractedLabel);
+        Thread.sleep(3000);
+        
+        // AI Validation: Check if the third article has culture label below it
+        System.out.println("Validation: Checking if the third article has culture category label");
+        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: Locate the third article from the top. Check if this article has the text 'Culture' as its category label after the timestamp. Return true if the Culture label exists, return false if it does not exist or shows a different category\"]}");
         
         // Convert AI validation result to boolean and assert
         boolean isValidationPassed = false;
@@ -70,7 +79,7 @@ public class AppiumTest {
         
         // Standard TestNG assertion using the AI validation output
         Assert.assertTrue(isValidationPassed, 
-            "Date of birth should be set to 8 Jan 1994 but validation failed");
+            "Third article should have culture category label but validation failed");
         
         System.out.println("Test completed successfully!");
     }

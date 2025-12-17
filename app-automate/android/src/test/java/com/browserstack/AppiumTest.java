@@ -28,22 +28,23 @@ public class AppiumTest {
     public void sampleTest() throws Exception {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         
-        // AI Action 1: Search for "BrowserStack" on Wikipedia
-        System.out.println("Action 1: Searching for BrowserStack on Wikipedia...");
-        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Search for BrowserStack on Wikipedia\"]}");
+        // AI Action 1: Search for "india" on Wikipedia
+        System.out.println("Action 1: Tap on the \"Search\" option from below navigation bar and type \" india\" on the search bar and tap on the first suggestion");
+        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Tap on the \\\"Search\\\" option from below navigation bar and type \\\" india\\\" on the search bar and tap on the first suggestion\"]}");
         Thread.sleep(3000); // Wait for search results
         
-        // AI Action 2: Click on the first search result
-        System.out.println("Action 2: Opening the first search result...");
-        jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Click on the first search result\"]}");
-        Thread.sleep(3000); // Wait for page to load
+        // AI Action 2: Extract the title of the search result
+        System.out.println("Action 2: Extract the title of the search result...");
+        Object titleResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Extract the title of the search result\"]}");
+        String extractedTitle = titleResult != null ? titleResult.toString() : "";
+        System.out.println("Extracted Title: " + extractedTitle);
         
-        // AI Validation: Check if the article title contains "BrowserStack"
-        System.out.println("Validation: Checking if article title contains 'BrowserStack'...");
-        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Check if the article title contains BrowserStack and return true or false\"]}");
+        // AI Validation: Check if the title contains "India"
+        System.out.println("Validation: Checking if title of the search result contains India...");
+        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Validate if the title of the search result contains India\"]}");
         
         // Convert AI validation result to boolean and assert
-        Boolean isValidationPassed = false;
+        boolean isValidationPassed = false;
         
         if (validationResult instanceof Boolean) {
             isValidationPassed = (Boolean) validationResult;
@@ -68,7 +69,7 @@ public class AppiumTest {
         
         // Standard TestNG assertion using the AI validation output
         Assert.assertTrue(isValidationPassed, 
-            "Article title should contain 'BrowserStack' but validation failed");
+            "Article title should contain 'India' but validation failed");
         
         System.out.println("Test completed successfully!");
     }
