@@ -30,28 +30,21 @@ public class AppiumTest {
     public void sampleTest() throws Exception {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         
-        // AI Action 1: Select culture tab (no scrolling needed)
+        // AI Action 1: Select culture tab
         System.out.println("Action 1: Select culture tab");
         jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Tap on culture tab from the top navigation bar\"]}");
         Thread.sleep(3000); // Wait for culture tab to load
         
-        // AI Action 2: Extract the title of the third article
-        System.out.println("Action 2: Fetch the title of the third article from the start...");
-        Object titleResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: Extract the title text of the third article from the top of the page\"]}");
-        String extractedTitle = titleResult != null ? titleResult.toString() : "";
-        System.out.println("Extracted Title: " + extractedTitle);
+        // AI Action 2: Extract the page heading
+        System.out.println("Action 2: Extract the page heading...");
+        Object headingResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Extract the main heading text displayed at the top of the page below the BBC logo\"]}");
+        String extractedHeading = headingResult != null ? headingResult.toString() : "";
+        System.out.println("Extracted Heading: " + extractedHeading);
         Thread.sleep(3000);
         
-        // AI Action 3: Extract the label below the third article
-        System.out.println("Action 3: Extracting the label below the third article...");
-        Object labelResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: If the third article along with timestamp and category label is not completely visible on screen, scroll a few pixels at a time until it is fully in view. Then extract the category label text that appears after the timestamp of the third article\"]}");
-        String extractedLabel = labelResult != null ? labelResult.toString() : "";
-        System.out.println("Extracted Label: " + extractedLabel);
-        Thread.sleep(3000);
-        
-        // AI Validation: Check if the third article has culture label below it
-        System.out.println("Validation: Checking if the third article has culture category label");
-        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Context: An article on this page consists of an image, a title, an optional description (usually only available for the first article), followed by a timestamp and a category label. Task: Locate the third article from the top. Check if this article has the text 'Culture' as its category label after the timestamp. Return true if the Culture label exists, return false if it does not exist or shows a different category\"]}");
+        // AI Validation: Check if the page heading is Culture
+        System.out.println("Validation: Checking if the page heading is Culture");
+        Object validationResult = jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\"Check if the main heading text at the top of the page is Culture\"]}");
         
         // Convert AI validation result to boolean and assert
         boolean isValidationPassed = false;
@@ -79,7 +72,7 @@ public class AppiumTest {
         
         // Standard TestNG assertion using the AI validation output
         Assert.assertTrue(isValidationPassed, 
-            "Third article should have culture category label but validation failed");
+            "Page heading should be Culture but validation failed");
         
         System.out.println("Test completed successfully!");
     }
