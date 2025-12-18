@@ -57,7 +57,7 @@ It contains demo scripts:
 -   Clone the repository
 -   Navigate to the Android directory: 
     ```sh
-    cd app-automate/android
+    cd android
     ```
 -   Replace `YOUR_USERNAME` and `YOUR_ACCESS_KEY` with your BrowserStack access credentials in `browserstack.yml`.
 -   Declare capability **`aiAuthoring: true`** in `browserstack.yml` file (if not already present).
@@ -79,7 +79,7 @@ It contains demo scripts:
 -   Clone the repository
 -   Navigate to the Android directory: 
     ```sh 
-    cd app-automate/android
+    cd android
     ```
 -   Replace `YOUR_USERNAME` and `YOUR_ACCESS_KEY` with your BrowserStack access credentials in `browserstack.yml`.
 -   Declare capability **`aiAuthoring: true`** in `browserstack.yml` file (if not already present).
@@ -103,7 +103,7 @@ It contains demo scripts:
 -   Clone the repository
 -   Navigate to the iOS directory: 
     ```ios 
-    cd app-automate/ios
+    cd ios
     ```
 -   Replace `YOUR_USERNAME` and `YOUR_ACCESS_KEY` with your BrowserStack access credentials in `browserstack.yml`.
 -   Declare capability **`aiAuthoring: true`** in `browserstack.yml` file (if not already present).
@@ -122,7 +122,7 @@ It contains demo scripts:
 -   Clone the repository
 -   Navigate to the iOS directory: 
     ```sh 
-    cd app-automate/ios
+    cd ios
     ```
 -   Replace `YOUR_USERNAME` and `YOUR_ACCESS_KEY` with your BrowserStack access credentials in `browserstack.yml`.
 -   Declare capability **`aiAuthoring: true`** in `browserstack.yml` file (if not already present).
@@ -170,7 +170,7 @@ Understand how many parallel sessions you need by using our [Parallel Test Calcu
 ## Notes
 
 * You can view your test results on the [BrowserStack App Automate dashboard](https://www.browserstack.com/app-automate).
-* For detailed documentation on Appium and Java setup with BrowserStack App Automate, please refer to the [official documentation](https://www.browserstack.com/docs/app-automate/appium).
+* For detailed documentation on Appium and Java setup with BrowserStack App Automate, please refer to the [official documentation](https://www.browserstack.com/docs/appium).
 
 ## Getting Help
 
