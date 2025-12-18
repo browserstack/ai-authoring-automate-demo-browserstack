@@ -3,9 +3,9 @@ accessKey: YOUR_ACCESS_KEY
 framework: true
 platforms:
   - os: Windows
-    osVersion: 10
+    osVersion: 11
     browserName: Chrome
-    browserVersion: 120.0
+    browserVersion: latest
 browserstackLocal: true
 buildName: browserstack-AI agent authoring for Automate(Latest)
 projectName: BrowserStack Sample
