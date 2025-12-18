@@ -1,4 +1,4 @@
-# AI Authoring Agent-Automate Demo for Web (BrowserStack)
+# Cross-Device Automation Agent Demo (BrowserStack Automate)
 
 [TestNG](http://testng.org) Integration with BrowserStack.
 
@@ -6,7 +6,7 @@
 
 ## What Does This Repo Do?
 
-This repository showcases the use of **BrowserStack's AI Authoring Agent** for web automation using TestNG. The key feature is the ability to write test steps in **Natural Language (Plain English)**, moving away from explicit Selenium locators and actions.
+This repository showcases the use of **BrowserStack's Cross-Device Automation Agent** for web automation using TestNG and Selenium. The key feature is the ability to write test steps in **Natural Language (Plain English)**, moving away from explicit Selenium locators and actions.
 
 It contains a demo script:
 * **`BstackAIAuthoring.java`**: Runs complex test objectives (like selecting a product in a specific price range or navigating to a quote page) using simple English commands.
@@ -21,7 +21,7 @@ It contains a demo script:
     // Example Objective: Find Google Pixel 3 phone on the website and add 5 of them to the cart
     jse.executeScript("browserstack_executor: {\"action\": \"ai\", \"arguments\": [\" Click on the Google button and Add 5 Pixel 3 phones to cart\"]}");
     ```
-3.  **Execution:** The BrowserStack AI Agent intercepts this command, interprets the natural language, and executes the equivalent low-level Selenium actions on the target web page.
+3.  **Execution:** The BrowserStack Cross-Device Automation Agent intercepts this command, interprets the natural language, and executes the equivalent low-level Selenium actions on the target web page.
 
 ---
 
@@ -79,3 +79,7 @@ Understand how many parallel sessions you need by using our [Parallel Test Calcu
 
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate).
 * For detailed documentation on general Selenium and Java setup with BrowserStack Automate, please refer to the [official documentation](https://www.browserstack.com/docs/automate/selenium?fw-lang=java).
+
+## Getting Help
+
+If you are running into any issues or have any queries, please check [Browserstack Support page](https://www.browserstack.com/support/automate) or [get in touch with us](https://www.browserstack.com/contact?ref=help).
