@@ -36,8 +36,8 @@ app: bs://b78d7940823391d54091b98d7f3b223e321d133e
 # Entire list available here -> (https://www.browserstack.com/list-of-browsers-and-platforms/automate)
 
 platforms:
-  - deviceName: Samsung Galaxy S22 Ultra
-    osVersion: 12.0
+  - deviceName: Google Pixel 9
+    osVersion: 15.0
     platformName: android
   # - deviceName: Samsung Galaxy S21
   #   osVersion: 11.0
